@@ -1,0 +1,23 @@
+1.git init でディレクトリのgitでの管理を始める
+2.ファイルを作ってプログラムを開発する(Uと表示される　Un tracked)
+3.git add ファイル名 でファイルをステージに追加する(Aと表示される stage) (git status で確認可能   赤色が緑色になる)
+4.git commit -m "メッセージ" でファイルをローカルに追加する(UやAが消える local) (git log で確認可能)
+5.ファイルに変更を加える (Mと表示される Modified (Un trackedの最初じゃないバージョン)) (変更された箇所は git diff ファイル名 で確認可能)
+6.再び3,4を行う　これらを繰り返す
+7.git remote add origin URL でサーバーを登録
+    変更の場合はgit remote set-url URL
+8.git branch -M main でブランチを設定
+9.pushする git push -u origin main
+
+git add . ですべてのファイルをaddできる
+
+Un tracked  →stage  →local  →remote
+Modified
+
+
+
+ブランチの作り方
+git branch で現在のブランチを確認できる
+1.git branch ブランチ名 で新しいブランチを作成できる
+2.git checkout ブランチ名 でブランチを切り替える
+
