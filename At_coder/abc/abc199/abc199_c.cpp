@@ -15,9 +15,7 @@ int main() {
     rep(i,q){
         cin >> t >> a >> b;
         if(t==1){
-            p1 = (a<=n ? &s1.at(a-1) : &s2.at(a-n-1));
-            p2 = (b<=n ? &s1.at(b-1) : &s2.at(b-n-1));
-            swap(*p1, *p2);
+            swap((a<=n ? s1.at(a-1) : s2.at(a-n-1)), (b<=n ? s1.at(b-1) : s2.at(b-n-1)));
         }else{
             swap(s1,s2);
         }
