@@ -17,31 +17,20 @@ int main() {
         }
     }
 
-    cout << "output" << endl;
-    rep(i,m){
-        rep(j,c.at(i)){
-            cout << a.at(i).at(j) << ' ';
-        }
-        cout << endl;
-    }
 
     int ans=0;
-    
     rep(i,1U<<m){
         set<short> exist;
         rep(j,m){
-            if(i & (1U<<j)) rep(k,a.at(j).size()){
+            if(i & (1U<<j)) rep(k,c.at(j)){
                 exist.insert(a.at(j).at(k));
-                //cout << a.at(j).at(k) << ' ';
             }
             cout << endl;
         }
 
-        bool ok=true;
-        rep(j,n){
-            if(!exist.count(j+1)) ok=false;
-        }
-        if(ok) ans++;
+        rep(j,n) if(!exist.count(j+1)) goto Exit;
+        ans++;
+        Exit:;
     }
 
     cout << ans << endl;
