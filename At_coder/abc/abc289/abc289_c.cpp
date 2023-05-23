@@ -1,14 +1,14 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define rep(i, n) for (int i = 0; i < (int)(n); i++)
+#define rep(i, n) for(int i = 0; i < (int)(n); i++)
 
 int main() {
-    char n, m;
+    short n, m;
     cin >> n >> m;
-    vector<char> c(m);
-    vector<vector<char>> a(m,vector<char>(0));
-    char tmp;
+    vector<short> c(m);
+    vector<vector<short>> a(m,vector<short>(0));
+    short tmp;
     rep(i,m){
         cin >> c.at(i);
         rep(j,c.at(i)){
@@ -17,12 +17,24 @@ int main() {
         }
     }
 
+    cout << "output" << endl;
+    rep(i,m){
+        rep(j,c.at(i)){
+            cout << a.at(i).at(j) << ' ';
+        }
+        cout << endl;
+    }
+
     int ans=0;
     
     rep(i,1U<<m){
-        set<char> exist;
+        set<short> exist;
         rep(j,m){
-            if(i & (1U<<j)) rep(k,a.at(j).size()) exist.insert(a.at(j).at(k));
+            if(i & (1U<<j)) rep(k,a.at(j).size()){
+                exist.insert(a.at(j).at(k));
+                //cout << a.at(j).at(k) << ' ';
+            }
+            cout << endl;
         }
 
         bool ok=true;
