@@ -6,22 +6,23 @@ using namespace std;
 int main() {
     int n, q;
     cin >> n >> q;
-    vector<long> a(n);
-    rep(i,n) cin >> a.at(i);
+    unordered_map<long, deque<int>> a;
+    int tmp;
+    rep(i,n){
+        cin >> tmp;
+        if(a.count(tmp)) a.at(tmp).push_back(i+1);
+        else a[tmp] = {i+1};
+    }
 
     long x, k;
-    int count=0;
     rep(i,q){
         cin >> x >> k;
-        count = 0;
-        rep(j,n){
-            if(a.at(j)==x) count++;
-            if(count==k){
-                cout << j+1 << endl;
-                goto Exit;
-            }
+        if(!a.count(x)){
+            cout << -1 << endl;
+        }else if(a.at(x).size()<=k-1){
+            cout << -1 << endl;
+        }else{
+            cout << a.at(x).at(k-1) << endl;
         }
-        cout << -1 << endl;
-        Exit:;
     }
 }
