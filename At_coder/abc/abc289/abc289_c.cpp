@@ -19,7 +19,7 @@ int main() {
 
     int ans=0;
     
-    rep(i,i<(1U<<m)){
+    rep(i,1U<<m){
         set<char> exist;
         rep(j,m){
             if(i & (1U<<j)) rep(k,a.at(j).size()) exist.insert(a.at(j).at(k));
