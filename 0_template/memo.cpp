@@ -176,7 +176,7 @@ int main() {
 
     minとmaxを積極的にに使う!
     
-    小数点以下n桁→ cout<<fixed<<setperprecision(小数点以下の桁数);
+    小数点以下n桁→ cout<<fixed<<setprecision(小数点以下の桁数);
 
     文字との対応 ----> 文字-'a'  などをして数字として扱う
 
@@ -233,6 +233,16 @@ int main() {
         itr1==itr2のとき+-dの範囲に値はない
         itr1は1を引いて使う！
     
+    シフト演算子
+        2^n倍や，2^nで割るのに使える！(切り捨て)
+
+    ビットの格納
+        bitset<int> 変数名　が便利
+
+    高速化
+        暗黙の型変換を減らすのが重要
+        int型からdouble型に変換して計算するくらいなら，初めからdouble型にcinする，など
+        short型からint型も同様
     
     */
     return 0;
