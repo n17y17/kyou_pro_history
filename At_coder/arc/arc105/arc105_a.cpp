@@ -20,7 +20,7 @@ int main() {
         }
         if(eat == (sum-eat)){
             cout << "Yes" << endl;
-            exit(0);
+            return 0;
         }
     }
     cout << "No" << endl;
