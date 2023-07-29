@@ -7,7 +7,7 @@ using namespace std;
 int main(){
     chrono::system_clock::time_point  start, end; // 型は auto で可
     start = chrono::system_clock::now(); // 計測開始時間
-// 処理
+    // 処理
     end = chrono::system_clock::now();  // 計測終了時間
     double elapsed = chrono::duration_cast<chrono::milliseconds>(end-start).count(); //処理に要した時間をミリ秒に変換
     cout << elapsed << "ms" << endl;

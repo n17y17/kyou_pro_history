@@ -8,6 +8,8 @@ void nCr(int ,int ,auto ,auto&);
 
 void nCr_2(int ,int ,auto ,auto&);
 
+void nCr_3(auto&, int, auto&, int i=0);
+
 
 
 
@@ -31,7 +33,7 @@ int main() {
     cin >> n >> r;
     vector<int> a(0) ,b(r);
     rep(i,n) a.push_back(i);
-    nCr(n ,r ,a ,b);
+    nCr_3(a, r, b);
 }
 
 //nCr
@@ -49,11 +51,30 @@ void nCr(int n ,int r ,auto a ,auto& b){
     }
 }
 
-//nCr   ver2
-void nCr_2(int n ,int r ,auto a ,auto& b){
-    if(r==1){
-        //処理
+//nCr_2
+void nCr_2(int n ,int r ,auto &a ,auto &b){
+    r--;
+    while(n--){
+        b[r]=a[n];
+        if(!r){
+            for(int i=0 ;i<b.size() ;i++) cout << b[i] << ' '; //b[0]-b[r-1]を使った式
+            cout << endl;
+            continue;
+        }
+        nCr(n ,r ,a ,b);
+    }
+}
+
+//nCr_3
+void nCr_3(auto &a, int r, auto &b, int i){
+    if(i==r){
+        //出力
+        for(int i=0 ;i<b.size() ;i++) cout << b[i] << ' '; //b[0]-b[r-1]を使った式
+        cout << endl;
         return;
     }
-    return;
+    for(int j=i; j<a.size(); j++){
+        b.at(i) = a.at(j);
+        nCr_3(a, r, b, j+1);
+    }
 }
