@@ -1,3 +1,4 @@
+Error
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -7,40 +8,50 @@ int main() {
     int n, m;
     cin >> n >> m;
 
+    cout << 'a' << endl;
+
     //m以下の素数を調べる
-    vector<int8_t> IsPrime(m+1,1);
-    unordered_set<int> prime;
+    vector<bool> IsPrime(m+1,1);
+    unordered_set<int8_t> prime;
     int tmp;
-    for(int i=2; i<=m; m++){
+    for(int i=2; i<=m; i++){
         if(!IsPrime.at(i)) continue;
         prime.insert(i);
         tmp=i;
-        while((tmp+=i)<m) IsPrime.at(tmp)=0;
-        rep(j,m)cout << IsPrime.at(j) << ' ';
-        cout << endl;
+        while((tmp+=i)<=m) IsPrime.at(tmp)=0;
     }
 
-    int a, num=m;
+    cout << 'b' << endl;
+
+    int a;
     vector<int8_t> exist_p(m+1,1);
     rep(i,n){
         cin >> a;
         unordered_set<int> checked;
+        cout << "b1" << endl;
         for(int p : prime){
-            if(a<p) break;
+            if(a<p) continue;
             if(exist_p.at(p)==0) continue;
+            cout << "b2" << endl;
             if(a%p==0){
+                cout << "b3" << endl;
                 tmp=p;
-                while((tmp+=p)<=m) exist_p.at(tmp)=0;
-                num -= (m/p);
+                do exist_p.at(tmp)=0; while((tmp+=p)<=m);
                 checked.insert(p);
             }
+            cout << "b4" << endl;
         }
         for(int c : checked) prime.erase(c);
+        cout << "b5" << endl;
     }
 
-    cout << num << endl;
+    cout << 'c' << endl;
+
+    int num=0;
+    for(int8_t e : exist_p) if(e) num++;
+    cout << num-1 << endl;
     cout << 1 << endl;
     for(int i=2; i<=m; i++){
-        if(exist_p.at(i)) cout << i << endl;
+        if(exist_p.at(i)) {cout << i << endl;}
     }
 }
