@@ -7,6 +7,7 @@ int main() {
 
 /*
 At-coderで十分に表せる範囲
+Arduinoは下記の一部の環境に該当
 (s)char -1e2 ~ 1e2
 uchar   0 ~ 2e2
 
